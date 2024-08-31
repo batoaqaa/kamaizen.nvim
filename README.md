@@ -16,6 +16,15 @@ local lspconfig = require('lspconfig')
 
 lspconfig.kamaizen.setup({
   cmd = { 'KamaiZen' },
-  filetypes = { 'kamailio_cfg' },
+  filetypes = { 'kamailio' },
+  root_dir = function()
+    return vim.fn.getcwd()
+  end,
+  settings = {
+    kamaiZen = {
+      logLevel = 'info',
+      kamailioSourcePath = '/path/to/kamailio-source',
+    },
+  },
 })
 ```
