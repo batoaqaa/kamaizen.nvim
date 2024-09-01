@@ -1,5 +1,6 @@
-local kamaizen = require("kamaizen")
-
-return {
-	setup = kamaizen.setup,
-}
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "cfg",
+	callback = function()
+		require("kamaizen").setup({})
+	end,
+})

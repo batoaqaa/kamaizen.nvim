@@ -41,7 +41,7 @@ download_and_extract_kamaizen() {
     local os_arch=$2
     local install_dir=$3
 
-    url="https://github.com/IbrahimShahzad/kamaizen/releases/download/${version}/KamaiZen-${os_arch}.tar.gz"
+    url="https://github.com/IbrahimShahzad/KamaiZen/releases/download/v0.0.1/KamaiZen-linux-amd64.tar.gz"
 
     echo "Downloading KamaiZen from $url..."
     curl -L -o "/tmp/KamaiZen.tar.gz" "$url" || {
