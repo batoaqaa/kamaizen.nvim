@@ -23,12 +23,12 @@ export PATH=$PATH:$HOME/.local/bin
 
 ```lua
 local client = vim.lsp.start_client {
-  cmd = { 'KamaiZen' },
+  cmd = { '/path/to/.local/bin/KamaiZen' }, -- update this path
   name = 'KamaiZen',
   settings = {
     kamaizen = {
       logLevel = 1,
-      kamailioSourcePath = '/home/ibrahim/work/kamailio/', -- Path to Kamailio source code
+      kamailioSourcePath = '/path/to/kamailio/', -- Path to Kamailio source code
     },
   },
 }
@@ -44,34 +44,4 @@ vim.api.nvim_create_autocmd('FileType', {
     vim.lsp.buf_attach_client(0, client)
   end,
 })
-```
-
-### With mason 
-
-THIS STILL NEEDS TO BE TESTED
-
-> **Note:** KamaiZen requires the Kamailio source code to be present on the system. The path to the source code must be provided in the KamaiZen configuration.
-Use [mason.nvim](https://github.com/williamboman/mason.nvim) to install KamaiZen:
-
-```lua
-return {
-  'IbrahimShahzad/kamaizen.nvim',
-  dependencies = { 'neovim/nvim-lspconfig' },
-  ft = 'cfg',
-  init = function()
-    local k = require('lspconfig').kamaizen
-    k.setup {
-      cmd = { 'KamaiZen' },
-      root_dir = function()
-        return vim.loop.cwd()
-      end,
-      settings = {
-        kamaizen = {
-          logLevel = 'info',
-          kamailioSourcePath = '/home/usr/path/kamailio/', -- Path to Kamailio source code
-        },
-      },
-    }
-  end,
-}
 ```
