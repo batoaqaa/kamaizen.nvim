@@ -1,5 +1,6 @@
 #!/bin/bash
 
+set -e
 # Function to detect the operating system and architecture
 detect_os_arch() {
     unameOut="$(uname -s)"
@@ -68,7 +69,7 @@ fi
 
 INSTALL_DIR=$(setup_install_dir)
 
-download_kamaizen "$VERSION" "$os_arch" "$INSTALL_DIR"
+download_and_extract_kamaizen "$VERSION" "$os_arch" "$INSTALL_DIR"
 
 # Add installation directory to PATH if it's not already there
 if ! grep -q "$INSTALL_DIR" <<< "$PATH"; then
