@@ -29,14 +29,14 @@
    "$" @keyword.operator
    var: (pseudo_content) @attribute.builtin)
 (var_
-  name: (pvar_argument) @variable.parameter
+  name: (identifier) @variable.parameter)
 (avp_var
   name: (pvar_argument) @variable.parameter)
 (dlg_var
-  name: (pvar_argument) @variable.parameter)
-(pvar_expression
-  "$" @keyword.operator
-  var: (pseudo_content) @attribute.builtin)
+  (identifier) @variable.parameter)
+ (pvar_expression
+   "$" @keyword.operator
+   var: (pseudo_content) @attribute.builtin)
 (xavp_values
   name: (identifier) @variable.parameter
   index: (identifier) @variable.builtin
